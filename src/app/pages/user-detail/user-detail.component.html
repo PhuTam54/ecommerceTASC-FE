@@ -32,125 +32,276 @@
             <!-- form start -->
             <form [formGroup]="form" (submit)="onSave()">
               <div class="card-body">
-                <div class="form-group">
-                  <label for="inputUserName">User name</label>
-                  <input
-                    formControlName="username"
-                    type="text"
-                    class="form-control"
-                    id="inputUserName"
-                    placeholder="Enter UserName"
-                  />
-                  <span
-                    class="textError"
-                    *ngIf="
-                      form.controls['username'].touched &&
-                      form.controls['username'].hasError('required')
-                    "
-                  >
-                    User name cannot be blank 
-                  </span>
-                  <span
-                    class="textError"
-                    *ngIf="
-                      form.controls['username'].touched &&
-                      form.controls['username'].hasError('maxlength')
-                    "
-                  >
-                    User name cannot be more than 20 characters
-                  </span>
-                  <span
-                    class="textError"
-                    *ngIf="
-                      form.controls['username'].touched &&
-                      form.controls['username'].hasError('minlength')
-                    ">
-                    User name has to be greater than 6 characters
-                  </span>
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Email address</label>
-                  <input
-                    formControlName="email"
-                    type="email"
-                    class="form-control"
-                    id="exampleInputEmail1"
-                    placeholder="Enter email"
-                  />
-                  <span
-                    class="textError"
-                    *ngIf="
-                      form.controls['email'].touched &&
-                      form.controls['email'].hasError('required')
-                    ">
-                  The email cannot be blank  
-                  </span>
-                  <span
-                    class="textError"
-                    *ngIf="
-                      form.controls['email'].touched &&
-                      form.controls['email'].hasError('email')
-                    ">
-                  The email is not valid
-                  </span>
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputPhoneNumber1">PhoneNumber</label>
-                  <input
-                    formControlName="phoneNumber"
-                    type="number"
-                    class="form-control"
-                    id="exampleInputPhoneNumber1"
-                    placeholder="PhoneNumber"
-                  />
-                  <span
-                    class="textError"
-                    *ngIf="
-                      form.controls['phoneNumber'].touched &&
-                      form.controls['phoneNumber'].hasError('required')
-                    ">
-                  The phone number cannot be blank
-                  </span>
-                  <span
-                    class="textError"
-                    *ngIf="
-                      form.controls['phoneNumber'].touched &&
-                      form.controls['phoneNumber'].hasError('minlength')
-                    ">
-                  The phone number has to be greater than or equal to 10 characters
-                  </span>
-                  <span
-                    class="textError"
-                    *ngIf="
-                      form.controls['phoneNumber'].touched &&
-                      form.controls['phoneNumber'].hasError('maxlength')
-                    ">
-                  The phone number cannot be more than 11 characters
-                  </span>
-                </div>
-                
-                <div class="form-group">
-                  <label for="avatar">Avatar</label>
-                  <div class="input-group">
-                    <div class="custom-file">
-                      <input type="file" class="custom-file-input" id="avatar">
-                      <label class="custom-file-label" for="avatar">Choose file</label>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="inputUserName">User name</label>
+                      <input
+                        formControlName="username"
+                        type="text"
+                        class="form-control"
+                        id="inputUserName"
+                        placeholder="Enter UserName"
+                      />
+                      <span
+                        class="textError"
+                        *ngIf="
+                          form.controls['username'].touched &&
+                          form.controls['username'].hasError('required')
+                        "
+                      >
+                        User name cannot be blank
+                      </span>
+                      <span
+                        class="textError"
+                        *ngIf="
+                          form.controls['username'].touched &&
+                          form.controls['username'].hasError('maxlength')
+                        "
+                      >
+                        User name cannot be more than 20 characters
+                      </span>
+                      <span
+                        class="textError"
+                        *ngIf="
+                          form.controls['username'].touched &&
+                          form.controls['username'].hasError('minlength')
+                        "
+                      >
+                        User name has to be greater than 6 characters
+                      </span>
                     </div>
-                    <div class="input-group-append">
-                      <span class="input-group-text">Upload</span>
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Email address</label>
+                      <input
+                        formControlName="email"
+                        type="email"
+                        class="form-control"
+                        id="exampleInputEmail1"
+                        placeholder="Enter email"
+                      />
+                      <span
+                        class="textError"
+                        *ngIf="
+                          form.controls['email'].touched &&
+                          form.controls['email'].hasError('required')
+                        "
+                      >
+                        The email cannot be blank
+                      </span>
+                      <span
+                        class="textError"
+                        *ngIf="
+                          form.controls['email'].touched &&
+                          form.controls['email'].hasError('email')
+                        "
+                      >
+                        The email is not valid
+                      </span>
                     </div>
+                    <div class="form-group">
+                      <label for="exampleInputPhoneNumber1">PhoneNumber</label>
+                      <input
+                        formControlName="phoneNumber"
+                        type="number"
+                        class="form-control"
+                        id="exampleInputPhoneNumber1"
+                        placeholder="PhoneNumber"
+                      />
+                      <span
+                        class="textError"
+                        *ngIf="
+                          form.controls['phoneNumber'].touched &&
+                          form.controls['phoneNumber'].hasError('required')
+                        "
+                      >
+                        The phone number cannot be blank
+                      </span>
+                      <span
+                        class="textError"
+                        *ngIf="
+                          form.controls['phoneNumber'].touched &&
+                          form.controls['phoneNumber'].hasError('minlength')
+                        "
+                      >
+                        The phone number has to be greater than or equal to 10
+                        characters
+                      </span>
+                      <span
+                        class="textError"
+                        *ngIf="
+                          form.controls['phoneNumber'].touched &&
+                          form.controls['phoneNumber'].hasError('maxlength')
+                        "
+                      >
+                        The phone number cannot be more than 11 characters
+                      </span>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="avatar">Avatar</label>
+                      <div class="input-group">
+                        <div class="custom-file">
+                          <input
+                            type="file"
+                            class="custom-file-input"
+                            id="avatar"
+                          />
+                          <label class="custom-file-label" for="avatar"
+                            >Choose file</label
+                          >
+                        </div>
+                        <div class="input-group-append">
+                          <span class="input-group-text">Upload</span>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- <div class="form-check">
+                      <input
+                        type="checkbox"
+                        class="form-check-input"
+                        id="exampleCheck1"
+                      />
+                      <label class="form-check-label" for="exampleCheck1"
+                        >Check me out</label
+                      >
+                    </div> -->
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="inputUserName">User name</label>
+                      <input
+                        formControlName="username"
+                        type="text"
+                        class="form-control"
+                        id="inputUserName"
+                        placeholder="Enter UserName"
+                      />
+                      <span
+                        class="textError"
+                        *ngIf="
+                          form.controls['username'].touched &&
+                          form.controls['username'].hasError('required')
+                        "
+                      >
+                        User name cannot be blank
+                      </span>
+                      <span
+                        class="textError"
+                        *ngIf="
+                          form.controls['username'].touched &&
+                          form.controls['username'].hasError('maxlength')
+                        "
+                      >
+                        User name cannot be more than 20 characters
+                      </span>
+                      <span
+                        class="textError"
+                        *ngIf="
+                          form.controls['username'].touched &&
+                          form.controls['username'].hasError('minlength')
+                        "
+                      >
+                        User name has to be greater than 6 characters
+                      </span>
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Email address</label>
+                      <input
+                        formControlName="email"
+                        type="email"
+                        class="form-control"
+                        id="exampleInputEmail1"
+                        placeholder="Enter email"
+                      />
+                      <span
+                        class="textError"
+                        *ngIf="
+                          form.controls['email'].touched &&
+                          form.controls['email'].hasError('required')
+                        "
+                      >
+                        The email cannot be blank
+                      </span>
+                      <span
+                        class="textError"
+                        *ngIf="
+                          form.controls['email'].touched &&
+                          form.controls['email'].hasError('email')
+                        "
+                      >
+                        The email is not valid
+                      </span>
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputPhoneNumber1">PhoneNumber</label>
+                      <input
+                        formControlName="phoneNumber"
+                        type="number"
+                        class="form-control"
+                        id="exampleInputPhoneNumber1"
+                        placeholder="PhoneNumber"
+                      />
+                      <span
+                        class="textError"
+                        *ngIf="
+                          form.controls['phoneNumber'].touched &&
+                          form.controls['phoneNumber'].hasError('required')
+                        "
+                      >
+                        The phone number cannot be blank
+                      </span>
+                      <span
+                        class="textError"
+                        *ngIf="
+                          form.controls['phoneNumber'].touched &&
+                          form.controls['phoneNumber'].hasError('minlength')
+                        "
+                      >
+                        The phone number has to be greater than or equal to 10
+                        characters
+                      </span>
+                      <span
+                        class="textError"
+                        *ngIf="
+                          form.controls['phoneNumber'].touched &&
+                          form.controls['phoneNumber'].hasError('maxlength')
+                        "
+                      >
+                        The phone number cannot be more than 11 characters
+                      </span>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="avatar">Avatar</label>
+                      <div class="input-group">
+                        <div class="custom-file">
+                          <input
+                            type="file"
+                            class="custom-file-input"
+                            id="avatar"
+                          />
+                          <label class="custom-file-label" for="avatar"
+                            >Choose file</label
+                          >
+                        </div>
+                        <div class="input-group-append">
+                          <span class="input-group-text">Upload</span>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- <div class="form-check">
+                      <input
+                        type="checkbox"
+                        class="form-check-input"
+                        id="exampleCheck1"
+                      />
+                      <label class="form-check-label" for="exampleCheck1"
+                        >Check me out</label
+                      >
+                    </div> -->
                   </div>
                 </div>
-                <!-- <div class="form-check">
-                  <input
-                    type="checkbox"
-                    class="form-check-input"
-                    id="exampleCheck1"
-                  />
-                  <label class="form-check-label" for="exampleCheck1"
-                    >Check me out</label
-                  >
-                </div> -->
               </div>
               <!-- /.card-body -->
 

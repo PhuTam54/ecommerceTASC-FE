@@ -12,7 +12,6 @@ import { DepartmentComponent } from './pages/department/department.component';
 import { PositionComponent } from './pages/position/position.component';
 import { UserDetailComponent } from './pages/user-detail/user-detail.component';
 import { UserComponent } from './pages/user/user.component';
-import { UsercreateComponent } from './pages/usercreate/usercreate.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +23,6 @@ import { UsercreateComponent } from './pages/usercreate/usercreate.component';
     DepartmentComponent,
     PositionComponent,
     UserDetailComponent,
-    UsercreateComponent
   ],
   imports: [
     BrowserModule,
