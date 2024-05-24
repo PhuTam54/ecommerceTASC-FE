@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { UserComponent } from './page/user/user.component';
-import { UserDetailsComponent } from './page/UserDetails/UserDetails.component';
-import { UserCreateComponent } from './page/UserCreate/UserCreate.component';
+import { UsercreateComponent } from './page/usercreate/usercreate.component';
+import { UserdetailsComponent } from './page/userdetails/userdetails.component';
 
 const routes: Routes = [
   {
@@ -11,11 +11,11 @@ const routes: Routes = [
   },
   {
     path: 'user/create',
-    component: UserCreateComponent,
+    component: UsercreateComponent,
   },
   {
     path: 'user/:id',
-    component: UserDetailsComponent,
+    component: UserdetailsComponent,
   },
   
 ];

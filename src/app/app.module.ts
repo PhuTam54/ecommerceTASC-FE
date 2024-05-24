@@ -8,8 +8,8 @@ import { NavbarComponent } from './layout/navbar/navbar.component';
 import { SidebarComponent } from './layout/sidebar/sidebar.component';
 import { UserComponent } from './page/user/user.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { UserDetailsComponent } from './page/UserDetails/UserDetails.component';
-import { UserCreateComponent } from './page/UserCreate/UserCreate.component';
+import { UserdetailsComponent } from './page/userdetails/userdetails.component';
+import { UsercreateComponent } from './page/usercreate/usercreate.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,8 +17,8 @@ import { UserCreateComponent } from './page/UserCreate/UserCreate.component';
     NavbarComponent,
     FooterComponent,
     UserComponent,
-    UserDetailsComponent,
-    UserCreateComponent,
+    UsercreateComponent,
+    UserdetailsComponent
   ],
   imports: [
     BrowserModule,

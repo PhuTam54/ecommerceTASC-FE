@@ -6,10 +6,10 @@ import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-UserCreate',
-  templateUrl: './UserCreate.component.html',
-  styleUrls: ['./UserCreate.component.css']
+  templateUrl: './userCreate.component.html',
+  styleUrls: ['./userCreate.component.css']
 })
-export class UserCreateComponent implements OnInit {
+export class UsercreateComponent implements OnInit {
 
   constructor(
     private activedRoute: ActivatedRoute,
