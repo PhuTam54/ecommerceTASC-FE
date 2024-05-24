@@ -24,11 +24,11 @@
         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
 
-        <li class="nav-item">
+        <li class="nav-item open menu-is-opening menu-open">
           <a href="#" class="nav-link">
             <i class="nav-icon far fa-clock"></i>
             <p>
-              Management
+              User Management
               <i class="fas fa-angle-left right"></i>
             </p>
           </a>
@@ -36,19 +36,13 @@
             <li class="nav-item">
               <a [routerLink]="['/user']" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
-                <p>User</p>
+                <p>All Users</p>
               </a>
             </li>
             <li class="nav-item">
-              <a [routerLink]="['/department']" class="nav-link">
+              <a [routerLink]="['/user/create']" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
-                <p>Department</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a [routerLink]="['/position']" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Position</p>
+                <p>Create new user</p>
               </a>
             </li>
           </ul>

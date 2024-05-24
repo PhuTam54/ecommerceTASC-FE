@@ -33,7 +33,7 @@
                 <button
                   type="button"
                   class="btn btn-success"
-                  (click)="returnHome()"
+                  (click)="createUser()"
                 >
                   Add new user
                 </button>
@@ -64,7 +64,6 @@
                     <th>ID</th>
                     <th>User</th>
                     <th>Email</th>
-                    <th>Password</th>
                     <th>phoneNumber</th>
                     <th>Action</th>
                   </tr>
@@ -74,7 +73,6 @@
                     <td>{{ item.id }}</td>
                     <td>{{ item.username }}</td>
                     <td>{{ item.email }}</td>
-                    <td>{{ item.password }}</td>
                     <td>{{ item.phoneNumber }}</td>
                     <td>
                       <button
@@ -84,7 +82,7 @@
                       >
                         Edit
                       </button>
-                      <button type="button" class="btn btn-danger ml-3">
+                      <button type="button" class="btn btn-danger ml-3" (click)="deleteUser(item.id)">
                         Delete
                       </button>
                     </td>
@@ -96,7 +94,6 @@
                     <th>ID</th>
                     <th>User</th>
                     <th>Email</th>
-                    <th>Password</th>
                     <th>phoneNumber</th>
                     <th>Action</th>
                   </tr>

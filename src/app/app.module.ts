@@ -3,14 +3,13 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { DepartmentComponent } from './page/department/department.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { NavbarComponent } from './layout/navbar/navbar.component';
-import { PositionComponent } from './page/position/position.component';
 import { SidebarComponent } from './layout/sidebar/sidebar.component';
 import { UserComponent } from './page/user/user.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { UserDetailsComponent } from './page/UserDetails/UserDetails.component';
+import { UserDetailsComponent } from './page/userDetails/UserDetails.component';
+import { UserCreateComponent } from './page/userCreate/UserCreate.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,8 +18,7 @@ import { UserDetailsComponent } from './page/UserDetails/UserDetails.component';
     FooterComponent,
     UserComponent,
     UserDetailsComponent,
-    DepartmentComponent,
-    PositionComponent,
+    UserCreateComponent,
   ],
   imports: [
     BrowserModule,

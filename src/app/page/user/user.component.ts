@@ -17,17 +17,21 @@ export class UserComponent implements OnInit {
     this.getUser();
   }
 
-  returnHome() {
-    alert('dang ve nha');
-  }
-
   getUser() {
     this.userService.getUser().subscribe((res) => {
       this.user = res.content;
     });
   }
 
+  createUser() {
+    this.router.navigate(['/user/create']);
+  }
+
   editUser(Id: any) {
     this.router.navigate(['/user', Id]);
+  }
+
+  deleteUser(Id: any) {
+    alert('Are you sure you want to delete? ' + Id);
   }
 }
