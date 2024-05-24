@@ -1,3 +1,4 @@
 export const environment = {
-    endPoint:"abcdxyz-dev"
+    production: false,
+    endPoint:"http://localhost:8081/api/v1/"
 };

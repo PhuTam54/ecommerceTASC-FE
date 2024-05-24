@@ -1,5 +1,11 @@
 export class User {
   id: number | undefined;
-  name: string | undefined;
-  isDeleted: boolean | false | undefined;
+  username: string | undefined;
+  password: string | undefined;
+  address: string | undefined;
+  email: string | undefined;
+  phoneNumber: string | undefined;
+  dateOfBirth: string | undefined;
+  gender: string | undefined;
+  // roles: Array<Object> | undefined;
 }

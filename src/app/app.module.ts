@@ -9,6 +9,8 @@ import { NavbarComponent } from './layout/navbar/navbar.component';
 import { PositionComponent } from './page/position/position.component';
 import { SidebarComponent } from './layout/sidebar/sidebar.component';
 import { UserComponent } from './page/user/user.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { UserDetailsComponent } from './page/UserDetails/UserDetails.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,10 +18,16 @@ import { UserComponent } from './page/user/user.component';
     NavbarComponent,
     FooterComponent,
     UserComponent,
+    UserDetailsComponent,
     DepartmentComponent,
     PositionComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
