@@ -8,8 +8,8 @@ import { NavbarComponent } from './layout/navbar/navbar.component';
 import { SidebarComponent } from './layout/sidebar/sidebar.component';
 import { UserComponent } from './page/user/user.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { UserDetailsComponent } from './page/userDetails/UserDetails.component';
-import { UserCreateComponent } from './page/userCreate/UserCreate.component';
+import { UserDetailsComponent } from './page/UserDetails/UserDetails.component';
+import { UserCreateComponent } from './page/UserCreate/UserCreate.component';
 @NgModule({
   declarations: [
     AppComponent,
