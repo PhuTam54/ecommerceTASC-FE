@@ -63,8 +63,8 @@
                   <tr>
                     <th>ID</th>
                     <th>Category</th>
-                    <th>Description</th>
                     <th>ParentId</th>
+                    <th>ChildrenNames</th>
                     <th>Action</th>
                   </tr>
                 </thead>
@@ -72,8 +72,12 @@
                   <tr *ngFor="let item of category">
                     <td>{{ item.id }}</td>
                     <td>{{ item.name }}</td>
-                    <td>{{ item.description }}</td>
-                    <td>{{ item.parentId }}</td>
+                    <td>{{ item.parent_id }}</td>
+                    <td>
+                      <div *ngFor="let child of item.childrenNames">
+                        {{ child.concat(', ')}}
+                      </div>
+                    </td>
                     <td>
                       <button
                         type="button"
@@ -93,8 +97,8 @@
                   <tr>
                     <th>ID</th>
                     <th>Category</th>
-                    <th>Description</th>
                     <th>ParentId</th>
+                    <th>ChildrenNames</th>
                     <th>Action</th>
                   </tr>
                 </thead>

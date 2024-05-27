@@ -6,7 +6,7 @@ import { ApiResponse } from '../model/ApiResponse';
 import { PaginationResponse } from '../model/Pagination';
 import { Category } from '../model/Category';
 const url = environment.endPoint;
-const endPoint = 'categorys';
+const endPoint = 'category/';
 const params = '?page=1&limit=10';
 
 @Injectable({
@@ -16,7 +16,7 @@ export class CategoryService {
   constructor(private http: HttpClient) {}
 
   getCategory(): Observable<any> {
-    return this.http.get<Category[]>(url + endPoint + params, {});
+    return this.http.get<Category[]>(url + endPoint, {});
   }
   
   getCategorys(searchParam: any): Observable<PaginationResponse<Category[]>> {

@@ -100,19 +100,19 @@
                       </span>
                     </div>
                     <div class="form-group">
-                      <label for="exampleInputParentId1">ParentId</label>
+                      <label for="exampleInputParent_id1">Parent_id</label>
                       <input
-                        formControlName="parentId"
+                        formControlName="parent_id"
                         type="number"
                         class="form-control"
-                        id="exampleInputParentId1"
-                        placeholder="ParentId"
+                        id="exampleInputParent_id1"
+                        placeholder="Parent_id"
                       />
                       <span
                         class="textError"
                         *ngIf="
-                          form.controls['parentId'].touched &&
-                          form.controls['parentId'].hasError('required')
+                          form.controls['parent_id'].touched &&
+                          form.controls['parent_id'].hasError('required')
                         "
                       >
                         The phone number cannot be blank
@@ -120,8 +120,8 @@
                       <span
                         class="textError"
                         *ngIf="
-                          form.controls['parentId'].touched &&
-                          form.controls['parentId'].hasError('minlength')
+                          form.controls['parent_id'].touched &&
+                          form.controls['parent_id'].hasError('minlength')
                         "
                       >
                         The phone number has to be greater than or equal to 10
@@ -130,8 +130,8 @@
                       <span
                         class="textError"
                         *ngIf="
-                          form.controls['parentId'].touched &&
-                          form.controls['parentId'].hasError('maxlength')
+                          form.controls['parent_id'].touched &&
+                          form.controls['parent_id'].hasError('maxlength')
                         "
                       >
                         The phone number cannot be more than 11 characters

@@ -26,7 +26,8 @@ export class CategoryComponent implements OnInit {
 
   getCategory() {
     this.categoryService.getCategory().subscribe((res) => {
-      this.category = res.content;
+      console.log(res);
+      this.category = res;
     });
   }
 
