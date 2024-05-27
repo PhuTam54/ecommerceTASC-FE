@@ -1,0 +1,159 @@
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1>Category details</h1>
+        </div>
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item active">Category details</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+    <!-- /.container-fluid -->
+  </section>
+
+  <!-- Main content -->
+  <section class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <!-- general form elements -->
+          <div class="card card-primary">
+            <div class="card-header">
+              <h3 class="card-title">Category details</h3>
+            </div>
+            <!-- /.card-header -->
+            <!-- form start -->
+            <form [formGroup]="form" (submit)="onSave()">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="inputName">Category name</label>
+                      <input
+                        formControlName="name"
+                        type="text"
+                        class="form-control"
+                        id="inputName"
+                        placeholder="Enter Name"
+                      />
+                      <span
+                        class="textError"
+                        *ngIf="
+                          form.controls['name'].touched &&
+                          form.controls['name'].hasError('required')
+                        "
+                      >
+                        Category name cannot be blank
+                      </span>
+                      <span
+                        class="textError"
+                        *ngIf="
+                          form.controls['name'].touched &&
+                          form.controls['name'].hasError('maxlength')
+                        "
+                      >
+                        Category name cannot be more than 20 characters
+                      </span>
+                      <span
+                        class="textError"
+                        *ngIf="
+                          form.controls['name'].touched &&
+                          form.controls['name'].hasError('minlength')
+                        "
+                      >
+                        Category name has to be greater than 6 characters
+                      </span>
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputDescription1">Description address</label>
+                      <input
+                        formControlName="description"
+                        type="text"
+                        class="form-control"
+                        id="exampleInputDescription1"
+                        placeholder="Enter description"
+                      />
+                      <span
+                        class="textError"
+                        *ngIf="
+                          form.controls['description'].touched &&
+                          form.controls['description'].hasError('required')
+                        "
+                      >
+                        The description cannot be blank
+                      </span>
+                      <span
+                        class="textError"
+                        *ngIf="
+                          form.controls['description'].touched &&
+                          form.controls['description'].hasError('description')
+                        "
+                      >
+                        The description is not valid
+                      </span>
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputParentId1">ParentId</label>
+                      <input
+                        formControlName="parentId"
+                        type="number"
+                        class="form-control"
+                        id="exampleInputParentId1"
+                        placeholder="ParentId"
+                      />
+                      <span
+                        class="textError"
+                        *ngIf="
+                          form.controls['parentId'].touched &&
+                          form.controls['parentId'].hasError('required')
+                        "
+                      >
+                        The phone number cannot be blank
+                      </span>
+                      <span
+                        class="textError"
+                        *ngIf="
+                          form.controls['parentId'].touched &&
+                          form.controls['parentId'].hasError('minlength')
+                        "
+                      >
+                        The phone number has to be greater than or equal to 10
+                        characters
+                      </span>
+                      <span
+                        class="textError"
+                        *ngIf="
+                          form.controls['parentId'].touched &&
+                          form.controls['parentId'].hasError('maxlength')
+                        "
+                      >
+                        The phone number cannot be more than 11 characters
+                      </span>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+              <!-- /.card-body -->
+
+              <div class="card-footer">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+            </form>
+          </div>
+          <!-- /.card -->
+        </div>
+      </div>
+      <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+  </section>
+  <!-- /.content -->
+</div>

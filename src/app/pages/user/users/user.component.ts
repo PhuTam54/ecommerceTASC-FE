@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PaginationResponse } from 'src/app/model/Pagination';
-import { User } from '../../model/User';
-import { UserService } from '../../services/user.service';
+import { User } from '../../../model/User';
+import { UserService } from '../../../services/user.service';
 
 @Component({
   selector: 'app-user',

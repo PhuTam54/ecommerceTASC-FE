@@ -26,7 +26,7 @@
 
         <li class="nav-item open menu-is-opening menu-open">
           <a href="#" class="nav-link">
-            <i class="nav-icon far fa-clock"></i>
+            <i class="nav-icon far fa-user"></i>
             <p>
               User Management
               <i class="fas fa-angle-left right"></i>
@@ -48,7 +48,29 @@
           </ul>
         </li>
 
-
+        <li class="nav-item">
+          <a href="#" class="nav-link">
+            <i class="nav-icon far fa-clock"></i>
+            <p>
+              Category Management
+              <i class="fas fa-angle-left right"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a [routerLink]="['/category']" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>All Categorys</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a [routerLink]="['/category/create']" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Create new category</p>
+              </a>
+            </li>
+          </ul>
+        </li>
 
       </ul>
     </nav>

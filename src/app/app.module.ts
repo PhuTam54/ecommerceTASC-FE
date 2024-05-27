@@ -8,10 +8,10 @@ import { FooterComponent } from './layout/footer/footer.component';
 import { NavbarComponent } from './layout/navbar/navbar.component';
 import { PreloaderComponent } from './layout/preloader/preloader.component';
 import { SidebarComponent } from './layout/sidebar/sidebar.component';
-import { DepartmentComponent } from './pages/department/department.component';
-import { PositionComponent } from './pages/position/position.component';
-import { UserDetailComponent } from './pages/user-detail/user-detail.component';
-import { UserComponent } from './pages/user/user.component';
+import { UserDetailComponent } from './pages/user/user-detail/user-detail.component';
+import { UserComponent } from './pages/user/users/user.component';
+import { CategoryComponent } from './pages/category/categories/category.component';
+import { CategoryDetailComponent } from './pages/category/category-detail/category-detail.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,9 +20,9 @@ import { UserComponent } from './pages/user/user.component';
     FooterComponent,
     PreloaderComponent,
     UserComponent,
-    DepartmentComponent,
-    PositionComponent,
     UserDetailComponent,
+    CategoryComponent,
+    CategoryDetailComponent
   ],
   imports: [
     BrowserModule,
