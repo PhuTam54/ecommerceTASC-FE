@@ -71,34 +71,7 @@
                         Category name has to be greater than 6 characters
                       </span>
                     </div>
-                    <div class="form-group">
-                      <label for="exampleInputDescription1">Description address</label>
-                      <input
-                        formControlName="description"
-                        type="text"
-                        class="form-control"
-                        id="exampleInputDescription1"
-                        placeholder="Enter description"
-                      />
-                      <span
-                        class="textError"
-                        *ngIf="
-                          form.controls['description'].touched &&
-                          form.controls['description'].hasError('required')
-                        "
-                      >
-                        The description cannot be blank
-                      </span>
-                      <span
-                        class="textError"
-                        *ngIf="
-                          form.controls['description'].touched &&
-                          form.controls['description'].hasError('description')
-                        "
-                      >
-                        The description is not valid
-                      </span>
-                    </div>
+                  
                     <div class="form-group">
                       <label for="exampleInputParent_id1">Parent_id</label>
                       <input
