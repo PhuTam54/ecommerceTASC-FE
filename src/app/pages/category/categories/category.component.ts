@@ -11,12 +11,7 @@ import { CategoryService } from '../../../services/category.service';
 })
 export class CategoryComponent implements OnInit {
   constructor(private categoryService: CategoryService, private router: Router) {}
-  paginationRes = new PaginationResponse<Category[]>();
-  searchParam = {
-    pageNumber: 1,
-    pageSize: 5,
-    Category: '',
-  };
+
 
   category: Category[] = [];
 
@@ -32,7 +27,7 @@ export class CategoryComponent implements OnInit {
   }
 
   createCategory() {
-    this.router.navigate(['/category/create']);
+    this.router.navigate(['/category/add']);
   }
 
   editCategory(Id: any) {

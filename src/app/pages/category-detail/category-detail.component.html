@@ -1,0 +1,181 @@
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1>Category details</h1>
+        </div>
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item active">Category details</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+    <!-- /.container-fluid -->
+  </section>
+
+  <!-- Main content -->
+  <section class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <!-- general form elements -->
+          <div class="card card-primary">
+            <div class="card-header">
+              <h3 class="card-title">Category details</h3>
+            </div>
+            <!-- /.card-header -->
+            <!-- form start -->
+            <form [formGroup]="form" (submit)="onSave()">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="inputCategoryName">Category name</label>
+                      <input
+                        formControlName="Categoryname"
+                        type="text"
+                        class="form-control"
+                        id="inputCategoryName"
+                        placeholder="Enter CategoryName"
+                      />
+                      <span
+                        class="textError"
+                        *ngIf="
+                          form.controls['Categoryname'].touched &&
+                          form.controls['Categoryname'].hasError('required')
+                        "
+                      >
+                        Category name cannot be blank
+                      </span>
+                      <span
+                        class="textError"
+                        *ngIf="
+                          form.controls['Categoryname'].touched &&
+                          form.controls['Categoryname'].hasError('maxlength')
+                        "
+                      >
+                        Category name cannot be more than 20 characters
+                      </span>
+                      <span
+                        class="textError"
+                        *ngIf="
+                          form.controls['Categoryname'].touched &&
+                          form.controls['Categoryname'].hasError('minlength')
+                        "
+                      >
+                        Category name has to be greater than 6 characters
+                      </span>
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputparent_Id1">Parent_Id</label>
+                      <input
+                        formControlName="Parent_Id"
+                        type="integer"
+                        class="form-control"
+                        id="exampleInputparent_Id1"
+                        placeholder="Enter Parent_Id"
+                      />
+                      <span
+                        class="textError"
+                        *ngIf="
+                          form.controls['Parent_Id'].touched &&
+                          form.controls['Parent_Id'].hasError('required')
+                        "
+                      >
+                        The email cannot be blank
+                      </span>
+                      <span
+                        class="textError"
+                        *ngIf="
+                          form.controls['email'].touched &&
+                          form.controls['email'].hasError('email')
+                        "
+                      >
+                        The email is not valid
+                      </span>
+                    </div>                  
+                  
+                    <!-- <div class="form-check">
+                      <input
+                        type="checkbox"
+                        class="form-check-input"
+                        id="exampleCheck1"
+                      />
+                      <label class="form-check-label" for="exampleCheck1"
+                        >Check me out</label
+                      >
+                    </div> -->
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="inputCategoryName">Category name</label>
+                      <input
+                        formControlName="Categoryname"
+                        type="text"
+                        class="form-control"
+                        id="inputCategoryName"
+                        placeholder="Enter CategoryName"
+                      />
+                      <span
+                        class="textError"
+                        *ngIf="
+                          form.controls['Categoryname'].touched &&
+                          form.controls['Categoryname'].hasError('required')
+                        "
+                      >
+                        Category name cannot be blank
+                      </span>
+                      <span
+                        class="textError"
+                        *ngIf="
+                          form.controls['Categoryname'].touched &&
+                          form.controls['Categoryname'].hasError('maxlength')
+                        "
+                      >
+                        Category name cannot be more than 20 characters
+                      </span>
+                      <span
+                        class="textError"
+                        *ngIf="
+                          form.controls['Categoryname'].touched &&
+                          form.controls['Categoryname'].hasError('minlength')
+                        "
+                      >
+                        Category name has to be greater than 6 characters
+                      </span>
+                    </div>
+                    
+                    <!-- <div class="form-check">
+                      <input
+                        type="checkbox"
+                        class="form-check-input"
+                        id="exampleCheck1"
+                      />
+                      <label class="form-check-label" for="exampleCheck1"
+                        >Check me out</label
+                      >
+                    </div> -->
+                  </div>
+                </div>
+              </div>
+              <!-- /.card-body -->
+
+              <div class="card-footer">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+            </form>
+          </div>
+          <!-- /.card -->
+        </div>
+      </div>
+      <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+  </section>
+  <!-- /.content -->
+</div>
