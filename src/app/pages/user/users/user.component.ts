@@ -24,8 +24,8 @@ export class UserComponent implements OnInit {
     this.getUser();
   }
 
-  getUser() {
-    this.userService.getUser().subscribe((res) => {
+  getUser(searchParam: any = '') {
+    this.userService.getUser(searchParam).subscribe((res) => {
       this.user = res.content;
     });
   }

@@ -65,6 +65,7 @@
                     <th>User</th>
                     <th>Email</th>
                     <th>phoneNumber</th>
+                    <th>Roles</th>
                     <th>Action</th>
                   </tr>
                 </thead>
@@ -74,6 +75,11 @@
                     <td>{{ item.username }}</td>
                     <td>{{ item.email }}</td>
                     <td>{{ item.phoneNumber }}</td>
+                    <td>
+                      <span *ngFor="let role of item.roles; let isLast=last">
+                        {{ role.name }}<span *ngIf="!isLast">, </span>
+                      </span>
+                    </td>
                     <td>
                       <button
                         type="button"
@@ -95,6 +101,7 @@
                     <th>User</th>
                     <th>Email</th>
                     <th>phoneNumber</th>
+                    <th>Roles</th>
                     <th>Action</th>
                   </tr>
                 </thead>

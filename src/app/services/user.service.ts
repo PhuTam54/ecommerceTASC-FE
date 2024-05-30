@@ -7,20 +7,19 @@ import { PaginationResponse } from '../model/Pagination';
 import { User } from '../model/User';
 const url = environment.endPoint;
 const endPoint = 'users';
-const params = '?page=1&limit=10';
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
   constructor(private http: HttpClient) {}
 
-  getUser(): Observable<any> {
-    return this.http.get<User[]>(url + endPoint + params, {});
+  getUser(searchParam: any): Observable<any> {
+    return this.http.get<User[]>(url + endPoint + searchParam ?? '?page=1&limit=10', {});
   }
   
   getUsers(searchParam: any): Observable<PaginationResponse<User[]>> {
     return this.http.post<PaginationResponse<User[]>>(
-      `${url + endPoint + '/search'}`,
+      `${url + endPoint}`,
       searchParam
     );
   }
