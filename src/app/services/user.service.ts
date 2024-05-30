@@ -7,6 +7,7 @@ import { PaginationResponse } from '../model/Pagination';
 import { User } from '../model/User';
 const url = environment.endPoint;
 const endPoint = 'users';
+const defaultParams = '?page=1&limit=10';
 @Injectable({
   providedIn: 'root',
 })
@@ -14,7 +15,8 @@ export class UserService {
   constructor(private http: HttpClient) {}
 
   getUser(searchParam: any): Observable<any> {
-    return this.http.get<User[]>(url + endPoint + searchParam ?? '?page=1&limit=10', {});
+    // return this.http.get<User[]>(url + endPoint + searchParam ?? defaultParams, {});
+    return this.http.get<User[]>(url + endPoint + defaultParams, {});
   }
   
   getUsers(searchParam: any): Observable<PaginationResponse<User[]>> {
