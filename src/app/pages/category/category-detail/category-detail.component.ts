@@ -37,23 +37,14 @@ export class CategoryDetailComponent implements OnInit {
 
   initForm() {
     this.form = this.fb.group({
-      id: [0],
-      name: [null, [Validators.required, Validators.minLength(6), Validators.maxLength(20)]],
-      parentId: [null, [Validators.required]],
-      childrenNames: this.fb.array([], Validators.maxLength(250))
+      id: [null],     
+      name: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(20)]],
+      parent_id: ['', [Validators.required]]
     });
   }
 
   bindValueForm() {
-    this.form.patchValue({
-      id: this.category.id,
-      name: this.category.name,
-      parentId: this.category.parent_id
-    });
-
-    if (this.category.childrenNames) {
-      this.setChildrenNames(this.category.childrenNames);
-    }
+    this.form.patchValue(this.category);
   }
 
   get childrenNames() : FormArray {
@@ -67,24 +58,20 @@ export class CategoryDetailComponent implements OnInit {
     });
   }
 
-  addChildName() {
-    this.childrenNames.push(this.fb.control(''));
-  }
-
-  removeChildName(index: number) {
-    this.childrenNames.removeAt(index);
-  }
-
   onSave() {
     let categoryForm = this.form.getRawValue();
+    console.log(categoryForm);
     if (categoryForm.id) {
+      console.log(categoryForm);
       this.categoryService.updateCategory(categoryForm).subscribe((res) => {
+        this.router.navigateByUrl('/category');
         if (res.success) {
           this.router.navigateByUrl('/category');
         }
       });
     } else {
       this.categoryService.createCategory(categoryForm).subscribe((res) => {
+        this.router.navigateByUrl('/category');
         if (res.success) {
           this.router.navigateByUrl('/category');
         }
