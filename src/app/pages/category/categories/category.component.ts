@@ -27,7 +27,7 @@ export class CategoryComponent implements OnInit {
   }
 
   createCategory() {
-    this.router.navigate(['/category/add']);
+    this.router.navigate(['/category/create']);
   }
 
   editCategory(Id: any) {
@@ -36,11 +36,11 @@ export class CategoryComponent implements OnInit {
 
   deleteCategory(Id: any) {
     alert('Are you sure you want to delete? ' + Id);
+      if (Id)
+        this.categoryService.deleteCategory(Id).subscribe((res) => {
+          this.getCategory();
+        });
+  
   }
-  onDelete(item: Category) {
-    // if (item)
-    //   this.categoryService.deleteCategory(item.id).subscribe((res) => {
-    //     this.getCategory();
-    //   });
-  }
+
 }
