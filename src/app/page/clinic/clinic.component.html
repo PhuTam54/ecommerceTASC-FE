@@ -4,13 +4,13 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1 class="m-0">User</h1>
+          <h1 class="m-0">Clinic Management</h1>
         </div>
         <!-- /.col -->
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a>Home</a></li>
-            <li class="breadcrumb-item active">User</li>
+            <li class="breadcrumb-item active">Clinic</li>
           </ol>
         </div>
         <!-- /.col -->
@@ -30,8 +30,8 @@
           <div class="card">
             <div class="card-header">
               <h3 class="card-title">
-                <button type="button" class="btn btn-success" (click)="createUser()">
-                  Add new user
+                <button type="button" class="btn btn-success" (click)="createClinic()">
+                  Add new clinic
                 </button>
               </h3>
 
@@ -49,36 +49,43 @@
             </div>
             <!-- /.card-header -->
             <div class="card-body table-responsive p-0">
-              <table class="table table-hover text-nowrap">
+              <table class="table">
                 <thead>
                   <tr>
-                    <th>ID</th>
-                    <th>User</th>
+                    <th>Clinic Name</th>
+                    <th>Address</th>
+                    <th style="width: 100px;">Phone</th>
                     <th>Email</th>
-                    <th>phoneNumber</th>
-                    <th>Action</th>
+                    <th>Opening Hour</th>
+                    <th>Closing Hour</th>
+                    <th style="width: 200px;">Action</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let item of user">
-                    <td>{{ item.id }}</td>
-                    <td>{{ item.username }}</td>
+                  <tr *ngFor="let item of clinics">
+                    <td>{{ item.clinicName }}</td>
+                    <td>{{ item.address }}</td>
+                    <td>{{ item.phone }}</td>
                     <td>{{ item.email }}</td>
-                    <td>{{ item.phoneNumber }}</td>
+                    <td>{{ item.openingHours }}</td>
+                    <td>{{ item.closingHours }}</td>
                     <td>
-                      <button type="button" class="btn btn-primary" (click)="editUser(item.id)">
+                      <button type="button" class="btn btn-primary" (click)="editClinic(item.id)">
                         Edit
                       </button>
-                      <button type="button" class="btn btn-danger ml-3" (click)="deleteUser(item.id)">
+                      <button type="button" class="btn btn-danger ml-3" (click)="deleteClinic(item.id)">
                         Delete
                       </button>
                     </td>
-                    <!-- <td>{{item.roles[0].name}}</td> -->
                   </tr>
                 </tbody>
               </table>
             </div>
             <!-- /.card-body -->
+
+            <div class="card-footer">
+              <app-pagination [paging]="pagination" (pageChange)="pageChange($event)"></app-pagination>
+            </div>
           </div>
           <!-- /.card -->
         </div>

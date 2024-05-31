@@ -29,12 +29,6 @@
         <div class="col-12">
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">
-                <button type="button" class="btn btn-success" (click)="createUser()">
-                  Add new user
-                </button>
-              </h3>
-
               <div class="card-tools">
                 <div class="input-group input-group-sm" style="width: 150px">
                   <input type="text" name="table_search" class="form-control float-right" placeholder="Search" />
@@ -48,40 +42,43 @@
               </div>
             </div>
             <!-- /.card-header -->
-            <div class="card-body table-responsive p-0">
+            <div class="card-body p-0">
               <table class="table table-hover text-nowrap">
                 <thead>
                   <tr>
                     <th>ID</th>
-                    <th>User</th>
-                    <th>Email</th>
-                    <th>phoneNumber</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Details</th>
                     <th>Action</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let item of user">
+                  <tr *ngFor="let item of products">
                     <td>{{ item.id }}</td>
-                    <td>{{ item.username }}</td>
-                    <td>{{ item.email }}</td>
-                    <td>{{ item.phoneNumber }}</td>
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.description }}</td>
+                    <td>{{ item.detail }}</td>
                     <td>
-                      <button type="button" class="btn btn-primary" (click)="editUser(item.id)">
+                      <button type="button" class="btn btn-primary" (click)="edit(item.id)">
                         Edit
                       </button>
-                      <button type="button" class="btn btn-danger ml-3" (click)="deleteUser(item.id)">
+                      <button type="button" class="btn btn-danger ml-3" (click)="delete(item.id)">
                         Delete
                       </button>
                     </td>
                     <!-- <td>{{item.roles[0].name}}</td> -->
                   </tr>
                 </tbody>
+
               </table>
             </div>
             <!-- /.card-body -->
           </div>
           <!-- /.card -->
         </div>
+
+        <app-pagination></app-pagination>
       </div>
       <!-- /.row -->
       <!-- /.row (main row) -->

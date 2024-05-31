@@ -6,8 +6,8 @@ import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-userDetails',
-  templateUrl: './userDetails.component.html',
-  styleUrls: ['./userDetails.component.css']
+  templateUrl: './UserDetails.component.html',
+  styleUrls: ['./UserDetails.component.css']
 })
 export class UserdetailsComponent implements OnInit {
 
@@ -37,8 +37,8 @@ export class UserdetailsComponent implements OnInit {
     this.form = this.fb.group({
       id: [0],
       username: [null, [Validators.required, Validators.minLength(6), Validators.maxLength(20)]],
-      phoneNumber: [null, [Validators.required], Validators.pattern('^[0-9]*$'), Validators.minLength(10), Validators.maxLength(11)],
-      email: [null, [Validators.required], Validators.email, Validators.maxLength(50)],
+      phoneNumber: [null, [Validators.required, Validators.pattern('^[0-9]*$'), Validators.minLength(10), Validators.maxLength(20)]],
+      email: [null, [Validators.required, Validators.email, Validators.maxLength(50)]],
     });
   }
 
@@ -51,5 +51,5 @@ export class UserdetailsComponent implements OnInit {
     console.log(valueForm);
   }
 
-  onUploadCoverImage(file: any) {}
+  onUploadCoverImage(file: any) { }
 }

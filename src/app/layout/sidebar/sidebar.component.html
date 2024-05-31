@@ -47,8 +47,42 @@
             </li>
           </ul>
         </li>
+        
+        <li class="nav-item open menu-is-opening menu-open">
+          <a href="#" class="nav-link">
+            <i class="nav-icon far fa-clock"></i>
+            <p>
+              Clinic Management
+              <i class="fas fa-angle-left right"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a [routerLink]="['/clinic']" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>All Clinics</p>
+              </a>
+            </li>
+          </ul>
+        </li>
 
-
+        <li class="nav-item open menu-is-opening menu-open">
+          <a href="#" class="nav-link">
+            <i class="nav-icon far fa-clock"></i>
+            <p>
+              Favorite Product
+              <i class="fas fa-angle-left right"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a [routerLink]="['/favorite-product']" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>User Favorite</p>
+              </a>
+            </li>
+          </ul>
+        </li>
 
       </ul>
     </nav>

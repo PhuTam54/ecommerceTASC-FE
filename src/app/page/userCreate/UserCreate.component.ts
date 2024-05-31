@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { User } from 'src/app/model/User';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-UserCreate',
-  templateUrl: './userCreate.component.html',
-  styleUrls: ['./userCreate.component.css']
+  templateUrl: './UserCreate.component.html',
+  styleUrls: ['./UserCreate.component.css']
 })
 export class UsercreateComponent implements OnInit {
 
@@ -15,6 +15,7 @@ export class UsercreateComponent implements OnInit {
     private activedRoute: ActivatedRoute,
     private userService: UserService,
     private fb: FormBuilder,
+    private router: Router
   ) { }
 
   form!: FormGroup;
@@ -22,6 +23,11 @@ export class UsercreateComponent implements OnInit {
 
   ngOnInit() {
     this.initForm();
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        console.log(event.url)
+      }
+    })
   }
 
   initForm() {
@@ -38,5 +44,5 @@ export class UsercreateComponent implements OnInit {
     console.log(valueForm);
   }
 
-  onUploadCoverImage(file: any) {}
+  onUploadCoverImage(file: any) { }
 }
