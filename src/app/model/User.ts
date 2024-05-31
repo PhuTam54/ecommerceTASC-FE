@@ -10,4 +10,5 @@ export class User {
   dateOfBirth: string | undefined;
   gender: string | undefined;
   roles: Role[] | undefined;
+  avatar: File | undefined;
 }

@@ -72,7 +72,7 @@
                         User name has to be greater than 6 characters
                       </span>
                     </div>
-            
+
                     <!-- Password -->
                     <div class="form-group">
                       <label for="inputPassword">Password</label>
@@ -102,7 +102,7 @@
                         Password has to be greater than 6 characters
                       </span>
                     </div>
-            
+
                     <!-- Address -->
                     <div class="form-group">
                       <label for="inputAddress">Address</label>
@@ -114,7 +114,7 @@
                         placeholder="Enter Address"
                       />
                     </div>
-            
+
                     <!-- Email -->
                     <div class="form-group">
                       <label for="exampleInputEmail1">Email address</label>
@@ -144,7 +144,7 @@
                         The email is not valid
                       </span>
                     </div>
-            
+
                     <!-- Phone Number -->
                     <div class="form-group">
                       <label for="exampleInputPhoneNumber1">Phone Number</label>
@@ -171,7 +171,8 @@
                           form.controls['phoneNumber'].hasError('minlength')
                         "
                       >
-                        The phone number has to be greater than or equal to 10 characters
+                        The phone number has to be greater than or equal to 10
+                        characters
                       </span>
                       <span
                         class="textError"
@@ -183,7 +184,6 @@
                         The phone number cannot be more than 11 characters
                       </span>
                     </div>
-          
                   </div>
                   <div class="col-md-6">
                     <!-- Date of Birth -->
@@ -196,17 +196,21 @@
                         id="inputDateOfBirth"
                       />
                     </div>
-            
+
                     <!-- Gender -->
                     <div class="form-group">
                       <label for="inputGender">Gender</label>
-                      <select formControlName="gender" class="form-control" id="inputGender">
+                      <select
+                        formControlName="gender"
+                        class="form-control"
+                        id="inputGender"
+                      >
                         <option value="">Select Gender</option>
                         <option value="male">Male</option>
                         <option value="female">Female</option>
                       </select>
                     </div>
-            
+
                     <!-- Roles -->
                     <div class="form-group">
                       <label for="inputRoles">Roles</label>
@@ -216,9 +220,9 @@
                         id="inputRoles"
                         multiple
                       >
-                        <option *ngFor="let role of roles" [value]="role.value">
-                          {{ role.name }}
-                        </option>
+                        <option *ngFor="let role of roles" [value]="role.value" [selected]="form.controls['roles'].value.includes(role.name)">
+                        {{ role.name }}
+                      </option>
                       </select>
                     </div>
 
@@ -230,13 +234,20 @@
                         type="file"
                         class="form-control"
                         id="inputAvatar"
+                        (change)="onUploadCoverImage($event)"
+                      />
+                      <img
+                        class="img-fluid mt-2 w-10 h-10 rounded"
+                        [src]="coverImage"
+                        *ngIf="coverImage"
+                        alt="Cover image"
                       />
                     </div>
                   </div>
                 </div>
               </div>
               <!-- /.card-body -->
-            
+
               <div class="card-footer">
                 <button type="submit" class="btn btn-primary">Submit</button>
               </div>

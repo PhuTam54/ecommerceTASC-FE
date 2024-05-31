@@ -25,6 +25,7 @@ export class UserDetailComponent implements OnInit {
     { id: 2, name: 'ROLE_ADMIN', value: 'admin' },
     { id: 3, name: 'ROLE_MODERER', value: 'mod'},
   ];
+  coverImage: string | ArrayBuffer | null = null;
 
   ngOnInit() {
     this.initForm();
@@ -49,7 +50,8 @@ export class UserDetailComponent implements OnInit {
       phoneNumber: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(11)]],
       dateOfBirth: [''],
       gender: [''],
-      roles: [[], Validators.required]
+      roles: [this?.user?.roles?.map(role => role.name) ?? [], Validators.required],
+      avatar: ['']
     });
   }
 
@@ -61,8 +63,8 @@ export class UserDetailComponent implements OnInit {
     let userForm = this.form.getRawValue();
     if (userForm.id) {
       console.log(userForm);
-      userForm.role = userForm.roles;
-      // userForm.roles = this.selectedRoles;
+      userForm.append('avatar', this.form.get('avatar')?.value);
+
       this.userService.updateUser(userForm).subscribe((res) => {
         this.router.navigateByUrl('/user');
         if (res.success) this.router.navigateByUrl('/user');
@@ -72,32 +74,19 @@ export class UserDetailComponent implements OnInit {
         this.router.navigateByUrl('/user');
         if (res.success) this.router.navigateByUrl('/user');
       });
-      // if (this.form.valid) {
-        // const newUser: User = this.form.value;
-        // this.userService.createUser(newUser).subscribe(response => {
-        //   console.log('User created successfully', response);
-        // });
-      // } else {
-      //   console.log('Form is invalid');
-      // }
     }
   }
 
   onUploadCoverImage(event: any) {
     let file = event.target.files;
+    if (file.length === 0)
+      return;
+
+    let reader = new FileReader();
+    reader.readAsDataURL(file[0]);
+    reader.onload = (_event) => {
+      this.coverImage = reader.result;
+      this.form.get('avatar')?.setValue(file[0]);
+    }
   }
-
-  selectedRoles: string[] = [];
-
-  // handleRoleClick(role: Role) {
-  //   let roles = this.form.get('roles')?.value as Role[];
-  //   if (roles.includes(role)) {
-  //     roles = roles.filter((r) => r.id !== role.id);
-  //   } else {
-  //     roles.push(role);
-  //   }
-  //   console.log(roles);
-  //   this.selectedRoles = (roles as Role[]).map((r) => r.value ?? '');
-  // }
-
 }
