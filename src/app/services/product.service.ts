@@ -7,7 +7,7 @@ import { Product } from '../model/Product';
 
 
 const url = environment.endPoint;
-const endPoint = 'product';
+const endPoint = 'products';
 @Injectable({
   providedIn: 'root'
 })
