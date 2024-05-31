@@ -6,7 +6,7 @@ import { ApiResponse } from '../model/ApiResponse';
 import { PaginationResponse } from '../model/Pagination';
 import { Category } from '../model/Category';
 const url = environment.endPoint;
-const endPoint = 'categories';
+const endPoint = 'category';
 const params = '?page=1&limit=10';
 
 @Injectable({
