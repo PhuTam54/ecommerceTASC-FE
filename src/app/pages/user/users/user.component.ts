@@ -12,6 +12,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class UserComponent implements OnInit {
   constructor(private userService: UserService, private router: Router, private route: ActivatedRoute) {}
+
   paginationRes = new PaginationResponse<User[]>();
   searchParam = {pageNumber: 1, pageSize: 10};
 

@@ -1,0 +1,15 @@
+<nav aria-label="Page navigation example">
+  <ul class="pagination">
+    <li [ngClass]="!paging.first ? '':'disabled'" class="page-item">
+      <a class="page-link" href="javascript:void(0)" (click)="onPageChange(paging.number - 1)">Previous</a>
+    </li>
+    <ng-container *ngFor="let item of [].constructor(paging.totalPages); let i = index">
+      <li class="page-item" [ngClass]="i==paging.number ? 'active' : ''">
+        <a class="page-link" href="javascript:void(0)" (click)="onPageChange(i)">{{i + 1}}</a>
+      </li>
+    </ng-container>
+    <li [ngClass]="!paging.last ? '':'disabled'" class="page-item">
+      <a class="page-link" href="javascript:void(0)" (click)="onPageChange(paging.number + 1)">Next</a>
+    </li>
+  </ul>
+</nav>

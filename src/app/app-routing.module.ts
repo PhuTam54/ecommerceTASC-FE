@@ -4,6 +4,7 @@ import { UserComponent } from './pages/user/users/user.component';
 import { UserDetailComponent } from './pages/user/user-detail/user-detail.component';
 import { CategoryComponent } from './pages/category/categories/category.component';
 import { CategoryDetailComponent } from './pages/category/category-detail/category-detail.component';
+import { ClinicComponent } from './pages/clinic/clinics/clinics.component';
 
 const routes: Routes = [
   {
@@ -22,10 +23,14 @@ const routes: Routes = [
     path: 'category/:id',
     component: CategoryDetailComponent,
   },
+  {
+    path: 'clinic',
+    component: ClinicComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
