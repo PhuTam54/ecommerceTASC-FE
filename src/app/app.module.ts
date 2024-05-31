@@ -16,6 +16,8 @@ import { UserDetailComponent } from './pages/user/user-detail/user-detail.compon
 import { CategoryComponent } from './pages/category/categories/category.component';
 import { CategoryDetailComponent } from './pages/category/category-detail/category-detail.component';
 import { UserComponent } from './pages/user/users/user.component';
+import { ProductDetailComponent } from './pages/product/product-detail/product-detail.component';
+import { ProductsComponent } from './pages/product/products/product.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +32,9 @@ import { UserComponent } from './pages/user/users/user.component';
     ClinicCreateComponent,
     UserDetailComponent,
     CategoryComponent,
-    CategoryDetailComponent
+    CategoryDetailComponent,
+    ProductsComponent,
+    ProductDetailComponent
   ],
   imports: [
     BrowserModule,
