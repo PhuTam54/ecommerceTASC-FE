@@ -1,12 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ClinicComponent } from './page/clinic/clinic.component';
-import { UserComponent } from './page/user/user.component';
-import { FavoriteProductComponent } from './page/favorite-product/favorite-product.component';
-import { UsercreateComponent } from './page/UserCreate/UserCreate.component';
-import { UserdetailsComponent } from './page/UserDetails/UserDetails.component';
-import { ClinicCreateComponent } from './page/clinic-create/clinic-create.component';
-
+import { UserComponent } from './pages/user/users/user.component';
+import { UserDetailComponent } from './pages/user/user-detail/user-detail.component';
+import { CategoryComponent } from './pages/category/categories/category.component';
+import { CategoryDetailComponent } from './pages/category/category-detail/category-detail.component';
+import { ClinicComponent } from './pages/clinic/clinics/clinics.component';
 
 const routes: Routes = [
   {
@@ -14,25 +12,21 @@ const routes: Routes = [
     component: UserComponent,
   },
   {
-    path: 'user/create',
-    component: UsercreateComponent,
+    path: 'user/:id',
+    component: UserDetailComponent,
   },
   {
-    path: 'user/:id',
-    component: UserdetailsComponent,
+    path: 'category',
+    component: CategoryComponent,
+  },
+  {
+    path: 'category/:id',
+    component: CategoryDetailComponent,
   },
   {
     path: 'clinic',
-    component: ClinicComponent
+    component: ClinicComponent,
   },
-  {
-    path: 'clinic/create',
-    component: ClinicCreateComponent
-  },
-  {
-    path: 'favorite-product',
-    component: FavoriteProductComponent
-  }
 ];
 
 @NgModule({

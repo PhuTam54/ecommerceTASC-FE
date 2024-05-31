@@ -6,13 +6,12 @@ import { ClinicService } from 'src/app/services/clinic.service';
 
 @Component({
   selector: 'app-clinic',
-  templateUrl: './clinic.component.html',
-  styleUrls: ['./clinic.component.css']
+  templateUrl: './clinics.component.html',
+  styleUrls: ['./clinics.component.css']
 })
 export class ClinicComponent implements OnInit {
 
   constructor(private clinicService: ClinicService, private route: Router) { }
-
 
   pagination = new Pagination();
   clinics: Clinic[] = [];
@@ -28,7 +27,6 @@ export class ClinicComponent implements OnInit {
   getClinics(param: any) {
     this.clinicService.getAllClinics({ page: param.page, size: param.size }).subscribe((res) => {
       this.clinics = res.content
-      console.log(res.content)
       this.pagination.first = res.first;
       this.pagination.last = res.last;
       this.pagination.number = res.number;
@@ -41,7 +39,6 @@ export class ClinicComponent implements OnInit {
   pageChange(event: any) {
     this.getClinics({ page: event, size: 3 })
   }
-
 
   editClinic(id: number) { }
 

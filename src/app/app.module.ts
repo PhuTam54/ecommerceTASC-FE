@@ -6,27 +6,31 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { NavbarComponent } from './layout/navbar/navbar.component';
+import { PreloaderComponent } from './layout/preloader/preloader.component';
 import { SidebarComponent } from './layout/sidebar/sidebar.component';
-import { UserComponent } from './page/user/user.component';
-import { UsercreateComponent } from './page/UserCreate/UserCreate.component';
-import { UserdetailsComponent } from './page/UserDetails/UserDetails.component';
-import { FavoriteProductComponent } from './page/favorite-product/favorite-product.component';
+import { FavoriteProductComponent } from './pages/favorite-product/favorite-product.component';
 import { PaginationModule } from './layout/pagination/pagination.module';
-import { ClinicComponent } from './page/clinic/clinic.component';
-import { ClinicCreateComponent } from './page/clinic-create/clinic-create.component';
-
+import { ClinicComponent } from './pages/clinic/clinics/clinics.component';
+import { ClinicCreateComponent } from './pages/clinic/clinic-create/clinic-create.component';
+import { UserDetailComponent } from './pages/user/user-detail/user-detail.component';
+import { CategoryComponent } from './pages/category/categories/category.component';
+import { CategoryDetailComponent } from './pages/category/category-detail/category-detail.component';
+import { UserComponent } from './pages/user/users/user.component';
 @NgModule({
   declarations: [
     AppComponent,
     SidebarComponent,
     NavbarComponent,
     FooterComponent,
+    PreloaderComponent,
     UserComponent,
-    UsercreateComponent,
-    UserdetailsComponent,
+    UserDetailComponent,
     FavoriteProductComponent,
     ClinicComponent,
-    ClinicCreateComponent
+    ClinicCreateComponent,
+    UserDetailComponent,
+    CategoryComponent,
+    CategoryDetailComponent
   ],
   imports: [
     BrowserModule,
