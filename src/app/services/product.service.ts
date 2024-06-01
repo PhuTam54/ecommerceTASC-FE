@@ -20,9 +20,10 @@ export class ProductService {
 
   
 
-  getProducts(): Observable<any> {
+  getProducts(searchParam: any): Observable<any> {
     
-    return this.http.get<Product[]>(url + endPoint +'', {});
+    return this.http.get<Product[]>(url + endPoint + '?page=' 
+    + searchParam.pageNumber + '&limit=' + searchParam.pageSize, {});
   }
 
 
@@ -44,7 +45,7 @@ export class ProductService {
 
   deleteProduct(Id: number): Observable<ApiResponse<boolean>> {
     return this.http.delete<ApiResponse<boolean>>(
-      `${url + endPoint + '/trash' + Id}`
+      `${url + endPoint + '/trash/' + Id}`
     );
   }
 }
