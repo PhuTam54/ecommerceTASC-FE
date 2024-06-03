@@ -98,53 +98,7 @@
               </table>
             </div>
             <!-- /.card-body -->
-            <div class="card-footer">
-              <nav aria-label="Contacts Page Navigation">
-                <ul class="pagination justify-content-center">
-                  <li
-                    class="page-item"
-                    [class.disabled]="searchParam['pageNumber'] === 1"
-                  >
-                    <a
-                      class="page-link"
-                      href="#"
-                      (click)="prevPage(); $event.preventDefault()"
-                      aria-label="Previous"
-                    >
-                      <span aria-hidden="true">&laquo;</span>
-                    </a>
-                  </li>
-                  <span *ngFor="let page of pages">
-                    <li
-                      class="page-item"
-                        [class.disabled]="searchParam['pageNumber'].toString() === page.toString()"
-                    >
-                      <a
-                        class="page-link"
-                        (click)="
-                          searchParamChange(page); $event.preventDefault()
-                        "
-                        href="category?page={{ page }}"
-                        >{{ page }}</a
-                      >
-                    </li>
-                  </span>
-                  <li
-                    class="page-item"
-                    [class.disabled]="searchParam['pageNumber'] === totalPages"
-                  >
-                    <a
-                      class="page-link"
-                      href="#"
-                      (click)="nextPage(); $event.preventDefault()"
-                      aria-label="Next"
-                    >
-                      <span aria-hidden="true">&raquo;</span>
-                    </a>
-                  </li>
-                </ul>
-              </nav>
-            </div>
+            
             <!-- /.card-footer -->
           </div>
           <!-- /.card -->

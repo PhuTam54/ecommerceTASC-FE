@@ -110,7 +110,44 @@
                         The phone number cannot be more than 11 characters
                       </span>
                     </div>
-
+                    <div class="form-group">
+                      <label for="inputName">Category childrenNames</label>
+                      <input
+                        formControlName="childrenNames"
+                        type="text"
+                        class="form-control"
+                        id="inputName"
+                        placeholder="Enter Name"
+                      />
+                      <span
+                        class="textError"
+                        *ngIf="
+                          form.controls['childrenNames'].touched &&
+                          form.controls['childrenNames'].hasError('required')
+                        "
+                      >
+                        Category name cannot be blank
+                      </span>
+                      <span
+                        class="textError"
+                        *ngIf="
+                          form.controls['childrenNames'].touched &&
+                          form.controls['childrenNames'].hasError('maxlength')
+                        "
+                      >
+                        Category name cannot be more than 20 characters
+                      </span>
+                      <span
+                        class="textError"
+                        *ngIf="
+                          form.controls['childrenNames'].touched &&
+                          form.controls['childrenNames'].hasError('minlength')
+                        "
+                      >
+                        Category name has to be greater than 6 characters
+                      </span>
+                    </div>
+                    
                   </div>
                 </div>
               </div>
