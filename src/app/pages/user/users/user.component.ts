@@ -11,7 +11,6 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./user.component.css'],
 })
 export class UserComponent implements OnInit {
-  constructor(private userService: UserService, private router: Router, private route: ActivatedRoute) { }
 
   constructor(private userService: UserService, private router: Router, private route: ActivatedRoute) { }
   paginationRes = new PaginationResponse<User[]>();
