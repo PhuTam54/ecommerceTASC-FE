@@ -11,10 +11,10 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./user.component.css'],
 })
 export class UserComponent implements OnInit {
-  constructor(private userService: UserService, private router: Router, private route: ActivatedRoute) {}
 
+  constructor(private userService: UserService, private router: Router, private route: ActivatedRoute) { }
   paginationRes = new PaginationResponse<User[]>();
-  searchParam = {pageNumber: 1, pageSize: 10};
+  searchParam = { pageNumber: 1, pageSize: 10 };
 
   user: User[] = [];
   totalPages: number = 0;
@@ -35,7 +35,7 @@ export class UserComponent implements OnInit {
     this.userService.getUser(searchParam).subscribe((res) => {
       this.user = res.content;
       this.totalPages = res.totalPages;
-      this.pages = Array.from({length: this.totalPages}, (_, i) => i + 1);
+      this.pages = Array.from({ length: this.totalPages }, (_, i) => i + 1);
     });
   }
 
@@ -62,18 +62,18 @@ export class UserComponent implements OnInit {
 
   searchParamChange(page: number) {
     this.router.navigate(['/user'], { queryParams: { page: page, limit: this.searchParam['pageSize'] } })
-    .then(() => {
-      this.getUser(this.searchParam);
-    });
+      .then(() => {
+        this.getUser(this.searchParam);
+      });
   }
 
   prevPage() {
     if (this.searchParam['pageNumber'] > 1) {
       this.searchParam['pageNumber']--;
       this.router.navigateByUrl('/user?page=' + this.searchParam['pageNumber'] + '&limit=' + this.searchParam['pageSize'])
-      .then(() => {
-        this.getUser(this.searchParam);
-      });
+        .then(() => {
+          this.getUser(this.searchParam);
+        });
     }
   }
 
@@ -81,9 +81,9 @@ export class UserComponent implements OnInit {
     if (this.searchParam['pageNumber'] < this.totalPages) {
       this.searchParam['pageNumber']++;
       this.router.navigateByUrl('/user?page=' + this.searchParam['pageNumber'] + '&limit=' + this.searchParam['pageSize'])
-      .then(() => {
-        this.getUser(this.searchParam);
-      });
+        .then(() => {
+          this.getUser(this.searchParam);
+        });
     }
   }
 }

@@ -11,6 +11,7 @@ const endPoint = 'clinics';
 @Injectable({
   providedIn: 'root'
 })
+
 export class ClinicService {
 
   constructor(private http: HttpClient) { }
@@ -22,5 +23,25 @@ export class ClinicService {
     else if (param.size && !param.page) url = url + '?size=' + param.size
     return this.http.get<PaginationResponse<Clinic[]>>(url, {})
   }
+
+  getClinicById(id: number): Observable<Clinic> {
+    return this.http.get<Clinic>(baseUrl + endPoint + '/' + id)
+  }
+
+  updateClinic(id: number, data: any): Observable<Clinic> {
+    console.log('Sending data to server:', data); // Log dữ liệu trước khi gửi
+    return this.http.put<Clinic>(baseUrl + endPoint + '/' + id, data)
+  }
+
+  createClinic(data: any): Observable<Clinic> {
+    console.log('Sending data to server:', data); // Log dữ liệu trước khi gửi
+    return this.http.post<Clinic>(baseUrl + endPoint, data)
+  }
+
+  deleteClinic(id: number): Observable<Clinic> {
+    return this.http.delete<Clinic>(baseUrl + endPoint + '/' + id)
+  }
+
+
 
 }
