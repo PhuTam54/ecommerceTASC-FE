@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { PaginationResponse } from 'src/app/model/Pagination';
 import { User } from '../../../model/User';
 import { UserService } from '../../../services/user.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-user',
@@ -10,23 +11,30 @@ import { UserService } from '../../../services/user.service';
   styleUrls: ['./user.component.css'],
 })
 export class UserComponent implements OnInit {
-  constructor(private userService: UserService, private router: Router) { }
+  constructor(private userService: UserService, private router: Router, private route: ActivatedRoute) { }
   paginationRes = new PaginationResponse<User[]>();
-  searchParam = {
-    pageNumber: 1,
-    pageSize: 5,
-    User: '',
-  };
+  searchParam = { pageNumber: 1, pageSize: 10 };
 
   user: User[] = [];
+  totalPages: number = 0;
+  pages: number[] | undefined;
 
   ngOnInit() {
+    console.log(this.searchParam)
     this.getUser();
   }
 
-  getUser(searchParam: any = '') {
+  getUser(searchParam: any = this.searchParam) {
+    if (this.route.snapshot.queryParamMap.get('page')) {
+      searchParam.pageNumber = this.route.snapshot.queryParamMap.get('page');
+    }
+    if (this.route.snapshot.queryParamMap.get('limit')) {
+      searchParam.pageSize = this.route.snapshot.queryParamMap.get('limit');
+    }
     this.userService.getUser(searchParam).subscribe((res) => {
       this.user = res.content;
+      this.totalPages = res.totalPages;
+      this.pages = Array.from({ length: this.totalPages }, (_, i) => i + 1);
     });
   }
 
@@ -39,12 +47,42 @@ export class UserComponent implements OnInit {
   }
 
   deleteUser(Id: any) {
-    alert('Are you sure you want to delete? ' + Id);
+    if (confirm('Are you sure to delete the use with id: ' + Id + '?')) {
+      this.onDelete(Id);
+    }
   }
-  onDelete(item: User) {
-    // if (item)
-    //   this.userService.deleteUser(item.id).subscribe((res) => {
-    //     this.getUser();
-    //   });
+
+  onDelete(Id: any) {
+    this.userService.deleteUser(Id).subscribe((res) => {
+      this.getUser();
+      alert('Move to trash successfully! ' + Id);
+    });
+  }
+
+  searchParamChange(page: number) {
+    this.router.navigate(['/user'], { queryParams: { page: page, limit: this.searchParam['pageSize'] } })
+      .then(() => {
+        this.getUser(this.searchParam);
+      });
+  }
+
+  prevPage() {
+    if (this.searchParam['pageNumber'] > 1) {
+      this.searchParam['pageNumber']--;
+      this.router.navigateByUrl('/user?page=' + this.searchParam['pageNumber'] + '&limit=' + this.searchParam['pageSize'])
+        .then(() => {
+          this.getUser(this.searchParam);
+        });
+    }
+  }
+
+  nextPage() {
+    if (this.searchParam['pageNumber'] < this.totalPages) {
+      this.searchParam['pageNumber']++;
+      this.router.navigateByUrl('/user?page=' + this.searchParam['pageNumber'] + '&limit=' + this.searchParam['pageSize'])
+        .then(() => {
+          this.getUser(this.searchParam);
+        });
+    }
   }
 }
