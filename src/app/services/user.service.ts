@@ -1,6 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpEvent } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { ApiResponse } from '../model/ApiResponse';
 import { PaginationResponse } from '../model/Pagination';
@@ -35,6 +35,22 @@ export class UserService {
 
   createUser(user: User): Observable<ApiResponse<User>> {
     return this.http.post<ApiResponse<User>>(`${url + endPoint}`, user);
+  }
+
+  uploadImage(image: File): Observable<String> {
+    const formData = new FormData();
+    formData.append('file', image);
+
+    return this.http.post(`${url + endPoint + '/images'}`, formData, {
+        headers: {
+          contentType: 'multipart/form-data'
+        },
+        responseType: 'text'
+    });
+  }
+
+  getImage(fileName: string): Observable<string> {
+    return of(`${url + endPoint + '/images/' + fileName}`);
   }
 
   updateUser(user: User): Observable<ApiResponse<User>> {

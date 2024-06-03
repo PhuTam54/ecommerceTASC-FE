@@ -220,27 +220,35 @@
                         id="inputRoles"
                         multiple
                       >
-                        <option *ngFor="let role of roles" [value]="role.value" [selected]="form.controls['roles'].value.includes(role.name)">
-                        {{ role.name }}
-                      </option>
+                        <option
+                          *ngFor="let role of roles"
+                          [value]="role.value"
+                          [selected]="
+                            form.controls['roles'].value.includes(role.name)
+                          "
+                        >
+                          {{ role.name }}
+                        </option>
                       </select>
                     </div>
 
                     <!-- Avatar -->
                     <div class="form-group">
                       <label for="inputAvatar">Avatar</label>
+                      <img
+                        style="max-width: min-content; max-height: 150px"
+                        class="img-fluid mt-2 w-10 h-10 rounded d-block"
+                        *ngIf="coverImage"
+                        [src]="coverImage"
+                        alt="Cover image"
+                      />
                       <input
                         formControlName="avatar"
                         type="file"
                         class="form-control"
                         id="inputAvatar"
                         (change)="onUploadCoverImage($event)"
-                      />
-                      <img
-                        class="img-fluid mt-2 w-10 h-10 rounded"
-                        [src]="coverImage"
-                        *ngIf="coverImage"
-                        alt="Cover image"
+                        [value]="form.controls['avatar'].value"
                       />
                     </div>
                   </div>

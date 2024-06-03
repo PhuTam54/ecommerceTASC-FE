@@ -6,6 +6,8 @@ import { CategoryComponent } from './pages/category/categories/category.componen
 import { CategoryDetailComponent } from './pages/category/category-detail/category-detail.component';
 import { ClinicComponent } from './pages/clinic/clinics/clinics.component';
 import { ClinicCreateComponent } from './pages/clinic/clinic-create/clinic-create.component';
+import { ProductsComponent } from './pages/product/products/product.component';
+import { ProductDetailComponent } from './pages/product/product-detail/product-detail.component';
 
 const routes: Routes = [
   {
@@ -23,6 +25,14 @@ const routes: Routes = [
   {
     path: 'category/:id',
     component: CategoryDetailComponent,
+  },
+  {
+    path: 'product',
+    component: ProductsComponent,
+  },
+  {
+    path: 'product/:id',
+    component: ProductDetailComponent,
   },
   {
     path: 'clinic',

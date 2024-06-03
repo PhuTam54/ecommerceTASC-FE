@@ -15,8 +15,9 @@ const params = '?page=1&limit=10';
 export class CategoryService {
   constructor(private http: HttpClient) {}
 
-  getCategory(): Observable<any> {
-    return this.http.get<Category[]>(url + endPoint +'/', {});
+  getCategory(searchParam: any): Observable<any> {
+    return this.http.get<Category[]>(url + endPoint +'/'+ '?page=' 
+    + searchParam.pageNumber + '&limit=' + searchParam.pageSize, {});
   }
   
   getCategorys(searchParam: any): Observable<PaginationResponse<Category[]>> {
@@ -35,7 +36,7 @@ export class CategoryService {
   }
 
   createCategory(category: Category): Observable<Category> {
-    return this.http.post<Category>(`${url + endPoint}/add`, category);
+    return this.http.post<Category>(`${url + endPoint}/`, category);
   }
 
   updateCategory(category: Category): Observable<ApiResponse<Category>> {
