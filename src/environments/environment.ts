@@ -1,4 +1,6 @@
 export const environment = {
-    produiction: true,
-    endPoint:"http://localhost:8081/api/v1/"
+    production: true,
+    baseUrl: "http://localhost:8081/",
+    endPoint:"http://localhost:8081/api/v1/",
+    oauth2Url:"http://localhost:8081/oauth2/authorization/"
 };
