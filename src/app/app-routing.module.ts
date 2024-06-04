@@ -9,6 +9,7 @@ import { ClinicCreateComponent } from './pages/clinic/clinic-create/clinic-creat
 import { ProductsComponent } from './pages/product/products/product.component';
 import { ProductDetailComponent } from './pages/product/product-detail/product-detail.component';
 
+
 const routes: Routes = [
   {
     path: 'user',
