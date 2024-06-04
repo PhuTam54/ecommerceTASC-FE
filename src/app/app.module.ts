@@ -18,6 +18,10 @@ import { CategoryDetailComponent } from './pages/category/category-detail/catego
 import { UserComponent } from './pages/user/users/user.component';
 import { ProductDetailComponent } from './pages/product/product-detail/product-detail.component';
 import { ProductsComponent } from './pages/product/products/product.component';
+import { LoginComponent } from './pages/auth/login/login.component';
+import { RegisterComponent } from './pages/auth/register/register.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { LogoutComponent } from './pages/auth/logout/logout.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +38,11 @@ import { ProductsComponent } from './pages/product/products/product.component';
     CategoryComponent,
     CategoryDetailComponent,
     ProductsComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    LoginComponent,
+    LogoutComponent,
+    RegisterComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

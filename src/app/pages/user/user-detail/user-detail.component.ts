@@ -87,22 +87,23 @@ export class UserDetailComponent implements OnInit {
       this.userService.uploadImage(file).subscribe((res) => {
         userForm.avatar = res;
         this.userService.updateUser(userForm).subscribe((res) => {
-          this.router.navigateByUrl('/user');
           if (res.success) this.router.navigateByUrl('/user');
         });
       });
     } else if (userForm.id) {
       userForm.avatar = this.user.avatar;
       this.userService.updateUser(userForm).subscribe((res) => {
-        this.router.navigateByUrl('/user');
         if (res.success) this.router.navigateByUrl('/user');
+        console.log(res.message);
       });
     } else {
       this.userService.uploadImage(file).subscribe((res) => {
         userForm.avatar = res;
         this.userService.createUser(userForm).subscribe((res) => {
-          this.router.navigateByUrl('/user');
-          if (res.success) this.router.navigateByUrl('/user');
+          if (res.success) {
+            console.log(res.message);
+            this.router.navigateByUrl('/user');
+          }
         });
       });
     }
