@@ -1,5 +1,10 @@
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
+  <section class="content ml-2">
+    <button class="btn btn-outline-primary" (click)="goBack()">
+      <i class="fas fa-arrow-left"></i> Back
+    </button>
+  </section>
   <!-- Content Header (Page header) -->
   <section class="content-header">
     <div class="container-fluid">
@@ -23,6 +28,8 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-12">
+
+
           <!-- general form elements -->
           <div class="card card-success">
             <div class="card-header">
@@ -30,112 +37,96 @@
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <form [formGroup]="form" (submit)="onSave()">
+            <form [formGroup]="form" (ngSubmit)=" isUpdate ? onUpdate() : onSave()">
               <div class="card-body">
-                <div class="form-group">
-                  <label for="inputUserName">Clinic name</label>
-                  <input formControlName="username" type="text" class="form-control" id="inputUserName"
-                    placeholder="Enter Clinic Name" />
-                  <span class="textError" *ngIf="
-                      form.controls['username'].touched &&
-                      form.controls['username'].hasError('required')
-                    ">
-                    User name cannot be blank
-                  </span>
-                  <span class="textError" *ngIf="
-                      form.controls['username'].touched &&
-                      form.controls['username'].hasError('maxlength')
-                    ">
-                    User name cannot be more than 20 characters
-                  </span>
-                  <span class="textError" *ngIf="
-                      form.controls['username'].touched &&
-                      form.controls['username'].hasError('minlength')
-                    ">
-                    User name has to be greater than 6 characters
-                  </span>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label for="name">Clinic name</label>
+                      <input formControlName="clinicName" type="text" class="form-control" id="name"
+                        placeholder="Enter Clinic Name" />
+                      <span class="textError" *ngIf="
+                          form.controls['clinicName'].touched &&
+                          form.controls['clinicName'].hasError('required')
+                        ">
+                        User name cannot be blank
+                      </span>
+                    </div>
+                    <div class="form-group">
+                      <label for="address">Clinic address</label>
+                      <input formControlName="address" type="text" class="form-control" id="address"
+                        placeholder="Enter Clinic address" />
+                      <span class="textError" *ngIf="
+                          form.controls['address'].touched &&
+                          form.controls['address'].hasError('required')
+                        ">
+                        The address cannot be blank
+                      </span>
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Clinic email</label>
+                      <input formControlName="email" type="email" class="form-control" id="exampleInputEmail1"
+                        placeholder="Enter Clinic email" />
+                      <span class="textError" *ngIf="
+                          form.controls['email'].touched &&
+                          form.controls['email'].hasError('required')
+                        ">
+                        The email cannot be blank
+                      </span>
+                      <span class="textError" *ngIf="
+                          form.controls['email'].touched &&
+                          form.controls['email'].hasError('email')
+                        ">
+                        The email is not valid
+                      </span>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label for="exampleInputPhoneNumber1">Clinic phone number</label>
+                      <input formControlName="phone" type="text" class="form-control" id="exampleInputPhoneNumber1"
+                        placeholder=" Enter Clinic PhoneNumber" />
+                      <span class="textError" *ngIf="
+                          form.controls['phone'].touched &&
+                          form.controls['phone'].hasError('required')
+                        ">
+                        The phone number cannot be blank
+                      </span>
+                      <span class="textError" *ngIf="
+                          form.controls['phone'].touched &&
+                          form.controls['phone'].hasError('minlength')
+                        ">
+                        The phone number has to be greater than or equal to 10 characters
+                      </span>
+                      <span class="textError" *ngIf="
+                          form.controls['phone'].touched &&
+                          form.controls['phone'].hasError('maxlength')
+                        ">
+                        The phone number cannot be more than 11 characters
+                      </span>
+                    </div>
+                    <div class="form-group">
+                      <label for="openingHours">Opening hours</label>
+                      <input formControlName="openingHours" type="time" class="form-control" id="openingHours"
+                        placeholder="Enter Opening hours" />
+                      <span class="textError" *ngIf="
+                          form.controls['openingHours'].touched &&
+                          form.controls['openingHours'].hasError('required')
+                        ">
+                        The opening hours cannot be blank
+                      </span>
+                    </div>
+                    <div class="form-group">
+                      <label for="closingHours">Closing hours</label>
+                      <input formControlName="closingHours" type="time" class="form-control" id="closingHours" />
+                      <span class="textError" *ngIf="
+                          form.controls['closingHours'].touched &&
+                          form.controls['closingHours'].hasError('required')">
+                        The closing hours cannot be blank
+                      </span>
+                    </div>
+                  </div>
                 </div>
-                <div class="form-group">
-                  <label for="address">Clinic address</label>
-                  <input formControlName="address" type="text" class="form-control" id="address"
-                    placeholder="Enter Clinic address" />
-                  <span class="textError" *ngIf="
-                      form.controls['address'].touched &&
-                      form.controls['address'].hasError('required')
-                    ">
-                    The address cannot be blank
-                  </span>
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Clinic email</label>
-                  <input formControlName="email" type="email" class="form-control" id="exampleInputEmail1"
-                    placeholder="Enter Clinic email" />
-                  <span class="textError" *ngIf="
-                      form.controls['email'].touched &&
-                      form.controls['email'].hasError('required')
-                    ">
-                    The email cannot be blank
-                  </span>
-                  <span class="textError" *ngIf="
-                      form.controls['email'].touched &&
-                      form.controls['email'].hasError('email')
-                    ">
-                    The email is not valid
-                  </span>
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputPhoneNumber1">Clinic phone number</label>
-                  <input formControlName="phoneNumber" type="number" class="form-control" id="exampleInputPhoneNumber1"
-                    placeholder=" Enter Clinic PhoneNumber" />
-                  <span class="textError" *ngIf="
-                      form.controls['phoneNumber'].touched &&
-                      form.controls['phoneNumber'].hasError('required')
-                    ">
-                    The phone number cannot be blank
-                  </span>
-                  <span class="textError" *ngIf="
-                      form.controls['phoneNumber'].touched &&
-                      form.controls['phoneNumber'].hasError('minlength')
-                    ">
-                    The phone number has to be greater than or equal to 10 characters
-                  </span>
-                  <span class="textError" *ngIf="
-                      form.controls['phoneNumber'].touched &&
-                      form.controls['phoneNumber'].hasError('maxlength')
-                    ">
-                    The phone number cannot be more than 11 characters
-                  </span>
-                </div>
-                <div class="form-group">
-                  <label for="openingHours">Opening hours</label>
-                  <input formControlName="openingHours" type="time" class="form-control" id="openingHours"
-                    placeholder="Enter Opening hours" />
-                  <span class="textError" *ngIf="
-                      form.controls['openingHours'].touched &&
-                      form.controls['openingHours'].hasError('required')
-                    ">
-                    The opening hours cannot be blank
-                  </span>
-                </div>
-                <div class="form-group">
-                  <label for="closingHours">Closing hours</label>
-                  <input formControlName="closingHours" type="time" class="form-control" id="closingHours" />
-                  <span class="textError" *ngIf="
-                      form.controls['closingHours'].touched &&
-                      form.controls['closingHours'].hasError('required')">
-                    The closing hours cannot be blank
-                  </span>
-                </div>
-                <!-- <div class="form-check">
-                  <input
-                    type="checkbox"
-                    class="form-check-input"
-                    id="exampleCheck1"
-                  />
-                  <label class="form-check-label" for="exampleCheck1"
-                    >Check me out</label
-                  >
-                </div> -->
               </div>
               <!-- /.card-body -->
 

@@ -17,7 +17,7 @@ export class ClinicComponent implements OnInit {
   clinics: Clinic[] = [];
 
   ngOnInit() {
-    this.getClinics({ page: 1, size: 3 })
+    this.getClinics({ page: 0, size: 3 })
   }
 
   createClinic() {
@@ -40,9 +40,17 @@ export class ClinicComponent implements OnInit {
     this.getClinics({ page: event, size: 3 })
   }
 
-  editClinic(id: number) { }
+  editClinic(id: number) {
+    this.route.navigateByUrl('/clinic/' + id)
+  }
 
   deleteClinic(id: number) {
-
+    if (confirm('Are you sure to delete the clinic with id: ' + id + '?')) {
+      this.clinicService.deleteClinic(id).subscribe(res => {
+        alert('Deleted successfully');
+        this.clinics = this.clinics.filter(clinic => clinic.id !== id);
+      }
+      )
+    }
   }
 }
