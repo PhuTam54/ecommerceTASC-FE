@@ -25,6 +25,10 @@ const routes: Routes = [
   },
   {
     path: 'category/:id',
+    component: CategoryComponent,
+  },
+  {
+    path: 'category/update/:id',
     component: CategoryDetailComponent,
   },
   {

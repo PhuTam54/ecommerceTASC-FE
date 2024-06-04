@@ -13,6 +13,9 @@ const params = '?page=1&limit=10';
   providedIn: 'root'
 })
 export class CategoryService {
+  getParent() {
+    throw new Error('Method not implemented.');
+  }
   constructor(private http: HttpClient) {}
 
   getCategory(searchParam: any): Observable<any> {
@@ -26,6 +29,7 @@ export class CategoryService {
       searchParam
     );
   }
+ 
 
   // getById(Id: number): Observable<ApiResponse<Category>> {
   //   return this.http.get<ApiResponse<Category>>(`${url + endPoint + '/' + Id}`);
@@ -33,6 +37,10 @@ export class CategoryService {
 
   getById(Id: number): Observable<any> {
     return this.http.get<Category>(`${url + endPoint + '/' + Id}`);
+  }
+
+  getByParent(Id: number): Observable<any> {
+    return this.http.get<Category>(`${url + endPoint + '/children/' + Id}`);
   }
 
   createCategory(category: Category): Observable<Category> {

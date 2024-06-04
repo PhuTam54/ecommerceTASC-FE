@@ -95,6 +95,40 @@
             </li>
           </ul>
         </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link">
+              <i class="nav-icon far fa-clock"></i>
+              <p>
+                  Category Management
+                  <i class="fas fa-angle-left right"></i>
+              </p>
+          </a>
+          <ul class="nav nav-treeview">
+              <!-- Remove child items -->
+               <li class="nav-item">
+                  <a [routerLink]="['/category']" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>All Categories</p>
+                  </a>
+              </li>
+              Loop through parent categories
+              <ng-container *ngFor="let category of categories">
+                <li class="nav-item">
+                    <a [routerLink]="['/category', category.id]" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>{{ category.name }}</p>
+                    </a>
+                </li>
+            </ng-container>
+              <li class="nav-item">
+                  <a [routerLink]="['/category/create']" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Create new category</p>
+                  </a>
+              </li> 
+              
+          </ul>
+      </li>
 
         <li class="nav-item">
           <a href="#" class="nav-link">

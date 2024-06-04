@@ -39,7 +39,8 @@ export class CategoryDetailComponent implements OnInit {
     this.form = this.fb.group({
       id: [null],     
       name: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(20)]],
-      parent_id: ['', [Validators.required]]
+      parent_id: ['', [Validators.required]],
+      childrenNames:[null]
     });
   }
 
