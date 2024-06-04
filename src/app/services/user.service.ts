@@ -1,6 +1,6 @@
-import { HttpClient, HttpEvent } from '@angular/common/http';
+import { HttpClient, HttpEvent, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable, map, of } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { ApiResponse } from '../model/ApiResponse';
 import { PaginationResponse } from '../model/Pagination';
@@ -13,15 +13,32 @@ const endPoint = 'users';
 export class UserService {
   constructor(private http: HttpClient) {}
 
+  authInfo = JSON.parse(localStorage.getItem('authInfo') || '{}');
+
+  private httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: this.authInfo.tokenType + ' ' + this.authInfo.accessToken,
+    }),
+  };
+
   getUser(searchParam: any): Observable<any> {
-    return this.http.get<User[]>(url + endPoint + '?page=' 
-    + searchParam.pageNumber + '&limit=' + searchParam.pageSize, {});
+    return this.http.get<User[]>(
+      url +
+        endPoint +
+        '?page=' +
+        searchParam.pageNumber +
+        '&limit=' +
+        searchParam.pageSize,
+      this.httpOptions
+    );
   }
-  
+
   getUsers(searchParam: any): Observable<PaginationResponse<User[]>> {
     return this.http.post<PaginationResponse<User[]>>(
       `${url + endPoint}`,
-      searchParam
+      searchParam,
+      this.httpOptions
     );
   }
 
@@ -30,11 +47,22 @@ export class UserService {
   // }
 
   getById(Id: number): Observable<any> {
-    return this.http.get<User>(`${url + endPoint + '/' + Id}`);
+    return this.http.get<User>(
+      `${url + endPoint + '/' + Id}`,
+      this.httpOptions
+    );
   }
 
   createUser(user: User): Observable<ApiResponse<User>> {
-    return this.http.post<ApiResponse<User>>(`${url + endPoint}`, user);
+    return this.http
+      .post<ApiResponse<User>>(`${url + endPoint}`, user, this.httpOptions)
+      .pipe(
+        map((response) => {
+          response.success = true;
+          response.message = 'User created successfully';
+          return response;
+        })
+      );
   }
 
   uploadImage(image: File): Observable<String> {
@@ -42,10 +70,11 @@ export class UserService {
     formData.append('file', image);
 
     return this.http.post(`${url + endPoint + '/images'}`, formData, {
-        headers: {
-          contentType: 'multipart/form-data'
-        },
-        responseType: 'text'
+      headers: {
+        contentType: 'multipart/form-data',
+        Authorization: this.authInfo.tokenType + ' ' + this.authInfo.accessToken,
+      },
+      responseType: 'text',
     });
   }
 
@@ -56,13 +85,29 @@ export class UserService {
   updateUser(user: User): Observable<ApiResponse<User>> {
     return this.http.put<ApiResponse<User>>(
       `${url + endPoint + '/' + user.id}`,
-      user
-    );
+      user,
+      this.httpOptions
+    )
+    .pipe(
+      map((response) => {
+        response.success = true;
+        response.message = 'User updated successfully';
+        return response;
+      })
+    );;
   }
 
   deleteUser(Id: number): Observable<ApiResponse<boolean>> {
     return this.http.delete<ApiResponse<boolean>>(
-      `${url + endPoint + '/' + Id}`
-    );
+      `${url + endPoint + '/' + Id}`,
+      this.httpOptions
+    )
+    .pipe(
+      map((response) => {
+        response.success = true;
+        response.message = 'User deleted successfully';
+        return response;
+      })
+    );;
   }
 }
