@@ -1,0 +1,142 @@
+<body class="login-page">
+  <div class="login-box">
+    <div class="login-logo">
+      <a href="../../index2.html"><b>Admin</b>LTE</a>
+    </div>
+    <!-- /.login-logo -->
+    <div class="card">
+      <div class="card-body login-card-body">
+        <p class="login-box-msg">Sign in to start your session</p>
+
+        <form [formGroup]="form" (ngSubmit)="onSave()">
+          <div class="input-group mb-3">
+            <input
+              formControlName="userName"
+              type="text"
+              class="form-control"
+              id="inputUserName"
+              placeholder="Enter UserName"
+            />
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-user"></span>
+              </div>
+            </div>
+            <span
+              class="textError"
+              *ngIf="
+                form.controls['userName'].touched &&
+                form.controls['userName'].hasError('required')
+              "
+            >
+              User name cannot be blank
+            </span>
+            <span
+              class="textError"
+              *ngIf="
+                form.controls['userName'].touched &&
+                form.controls['userName'].hasError('maxlength')
+              "
+            >
+              User name cannot be more than 20 characters
+            </span>
+            <span
+              class="textError"
+              *ngIf="
+                form.controls['userName'].touched &&
+                form.controls['userName'].hasError('minlength')
+              "
+            >
+              User name has to be greater than 3 characters
+            </span>
+          </div>
+          <div class="input-group mb-3">
+            <input
+              formControlName="password"
+              type="password"
+              class="form-control"
+              id="inputPassword"
+              placeholder="Enter Password"
+            />
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-lock"></span>
+              </div>
+            </div>
+            <span
+              class="textError"
+              *ngIf="
+                form.controls['password'].touched &&
+                form.controls['password'].hasError('required')
+              "
+            >
+              Password cannot be blank
+            </span>
+            <span
+              class="textError"
+              *ngIf="
+                form.controls['password'].touched &&
+                form.controls['password'].hasError('minlength')
+              "
+            >
+              Password has to be greater than 6 characters
+            </span>
+          </div>
+          <div class="row">
+            <div class="col-8">
+              <div class="icheck-primary">
+                <input type="checkbox" id="remember" />
+                <label for="remember"> Remember Me </label>
+              </div>
+            </div>
+            <!-- /.col -->
+            <div class="col-4">
+              <button type="submit" class="btn btn-primary btn-block">
+                Sign In
+              </button>
+            </div>
+            <!-- /.col -->
+          </div>
+        </form>
+
+        <div class="social-auth-links text-center mb-3">
+          <p>- OR -</p>
+          <a
+            href="#"
+            (click)="onOAuth2Login('facebook', $event)"
+            class="btn btn-block btn-primary"
+          >
+            <i class="fab fa-facebook mr-2"></i> Sign in using Facebook
+          </a>
+          <a
+            href="#"
+            preventDefault
+            (click)="onOAuth2Login('google', $event)"
+            class="btn btn-block btn-danger"
+          >
+            <i class="fab fa-google-plus mr-2"></i> Sign in using Google+
+          </a>
+          <a
+            href="#"
+            (click)="onOAuth2Login('github', $event)"
+            class="btn btn-block btn-black"
+          >
+            <i class="fab fa-github mr-2"></i> Sign in using Github
+          </a>
+        </div>
+        <!-- /.social-auth-links -->
+
+        <p class="mb-1">
+          <a href="#">I forgot my password</a>
+        </p>
+        <p class="mb-0">
+          <a href="" (click)="goToRegister($event)" class="text-center"
+            >Register a new membership</a
+          >
+        </p>
+      </div>
+      <!-- /.login-card-body -->
+    </div>
+  </div>
+  <!-- /.login-box -->
+</body>

@@ -1,0 +1,198 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "ecommerce-admin": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/ecommerce-admin",
+      "sourceRoot": "projects/ecommerce-admin/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/ecommerce-admin",
+            "index": "projects/ecommerce-admin/src/index.html",
+            "main": "projects/ecommerce-admin/src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "projects/ecommerce-admin/tsconfig.app.json",
+            "assets": [
+              "projects/ecommerce-admin/src/favicon.ico",
+              "projects/ecommerce-admin/src/assets"
+            ],
+            "styles": [
+              "projects/ecommerce-admin/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true,
+              "fileReplacements": [
+                {
+                  "replace": "projects/ecommerce-admin/src/environments/environment.ts",
+                  "with": "projects/ecommerce-admin/src/environments/environment.development.ts"
+                }
+              ]
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "ecommerce-admin:build:production"
+            },
+            "development": {
+              "browserTarget": "ecommerce-admin:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ecommerce-admin:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "projects/ecommerce-admin/tsconfig.spec.json",
+            "assets": [
+              "projects/ecommerce-admin/src/favicon.ico",
+              "projects/ecommerce-admin/src/assets"
+            ],
+            "styles": [
+              "projects/ecommerce-admin/src/styles.css"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    },
+    "ecommerce-customer": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/ecommerce-customer",
+      "sourceRoot": "projects/ecommerce-customer/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/ecommerce-customer",
+            "index": "projects/ecommerce-customer/src/index.html",
+            "main": "projects/ecommerce-customer/src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "projects/ecommerce-customer/tsconfig.app.json",
+            "assets": [
+              "projects/ecommerce-customer/src/favicon.ico",
+              "projects/ecommerce-customer/src/assets"
+            ],
+            "styles": [
+              "projects/ecommerce-customer/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "ecommerce-customer:build:production"
+            },
+            "development": {
+              "browserTarget": "ecommerce-customer:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ecommerce-customer:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "projects/ecommerce-customer/tsconfig.spec.json",
+            "assets": [
+              "projects/ecommerce-customer/src/favicon.ico",
+              "projects/ecommerce-customer/src/assets"
+            ],
+            "styles": [
+              "projects/ecommerce-customer/src/styles.css"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "analytics": "93806276-ec91-450b-95d1-672ad54c0fe8"
+  }
+}
